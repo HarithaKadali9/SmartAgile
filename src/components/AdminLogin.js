@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import './style.css';
 import { Link } from 'react-router-dom';
-import logo from '../assets/smartagilelogo.png'; // Adjust path as needed
+import logo from '../assets/smartagilelogo.png';
 
 function Login() {
   const [form, setForm] = useState({
@@ -55,7 +56,7 @@ function Login() {
           <img src={logo} className="App-logo img-fluid" alt="logo" style={{ maxWidth: '100px', maxHeight: '75px' }} />
         </header>
         <form onSubmit={handleSubmit}>
-          <h3 className='text-center'>Employee Login</h3>
+          <h3 className='text-center'>Administrator* Login</h3>
           <div className='mb-2'>
             <label htmlFor='email'>Email</label>
             <input
@@ -88,7 +89,7 @@ function Login() {
             <button type='submit' className='btn btn-primary'>Sign in</button>
           </div>
           <p className='text-end mt-2'>
-            <Link to="/forgotpassword">Forgot Password?</Link>
+            Forget<a href="">Password</a><Link to="/signup" className='ms-2'>Sign up</Link>
           </p>
         </form>
       </div>
