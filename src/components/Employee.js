@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Image, Card, Button } from 'react-bootstrap';
 import logo from '../assets/smartagilelogo.png';
 import '../components/UserProfile.css'; // Import the CSS file
+import SprintModelTable from './SprintModelTable';
+import TaskVisualization from './TaskVisualization';
+import TaskBar from './TaskBar';
+import SprintBurndownChart from './SprintBurndownChart';
 
 const Employee = () => {
+  
+  const [showContent, setShowContent] = useState(false);
+  const [showContent1, setShowContent1] = useState(false);
+  const [showContent2, setShowContent2] = useState(false);
+  const [showContent3, setShowContent3] = useState(false);
+  const [showContent4, setShowContent4] = useState(false);
+
+  const toggleVisibility = () => {
+    setShowContent(!showContent);
+  };
+  const toggleVisibility1 = () => {
+    setShowContent1(!showContent1);
+  };
+  const toggleVisibility2 = () => {
+    setShowContent2(!showContent2);
+  };
+  const toggleVisibility3 = () => {
+    setShowContent3(!showContent3);
+  };
+  const toggleVisibility4 = () => {
+    setShowContent4(!showContent4);
+  };
+
   return (
     <div className="user-profile">
       <Container fluid className="bg-light py-3">
@@ -31,7 +58,17 @@ const Employee = () => {
                     <li>Sprint Goal</li>
                     <li>Future Consideration (Withdrawn Tasks)</li>
                 </ul>
-                <Button className="btn">Action</Button>
+                <div>
+                  <button onClick={toggleVisibility}>
+                    {showContent ? "Less info" : "More info"}
+                  </button>
+                  {showContent && (
+                    <div>
+                    <SprintModelTable />
+                  </div>
+                  )}
+                </div>
+              
               </Card.Body>
             </Card>
           </Col>
@@ -44,7 +81,31 @@ const Employee = () => {
                     <li>Completed Yesterday</li>
                     <li>Impediments</li>
                 </ul>
-                <Button className="btn">Action</Button>
+                <div>
+                  <Button onClick={toggleVisibility1}>
+                    {showContent1 ? "Less info" : "More info"}
+                  </Button>
+                  {showContent1 && (
+                    <div>
+                      <h2>Today’s Tasks</h2>
+                      <ul>
+                        <li>Task 1</li>
+                        <li>Task 2</li>
+                        <li>Task 3</li>
+                      </ul>
+                      <h2>Completed Yesterday</h2>
+                      <ul>
+                        <li>Task A</li>
+                        <li>Task B</li>
+                      </ul>
+                      <h2>Impediments</h2>
+                      <ul>
+                        <li>Issue X</li>
+                        <li>Issue Y</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -58,7 +119,18 @@ const Employee = () => {
                   <li>Task Status Updates</li>
                   <li>Blocked Tasks (Impediments)</li>
                 </ul>
-                <Button className="btn">Action</Button>
+                
+                <div>
+                  <button onClick={toggleVisibility2}>
+                    {showContent2 ? "Less info" : "More info"}
+                  </button>
+                  {showContent2 && (
+                    <div>
+                    <TaskVisualization />
+                  </div>
+                  )}
+                </div>
+                
               </Card.Body>
             </Card>
           </Col>
@@ -77,7 +149,16 @@ const Employee = () => {
                   <li>Attachments and Resources</li>
                   <li>Peer Reviews</li>
                 </ul>
-                <Button className="btn">Action</Button>
+                <div>
+                  <button onClick={toggleVisibility3}>
+                    {showContent3 ? "Less info" : "More info"}
+                  </button>
+                  {showContent3 && (
+                    <div>
+                    <TaskBar />
+                  </div>
+                  )}
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -91,7 +172,16 @@ const Employee = () => {
                   <li>What Didn’t Go Well</li>
                   <li>Action Items for Improvement</li>
                 </ul>
-                <Button className="btn">Action</Button>
+                <div>
+                  <button onClick={toggleVisibility4}>
+                    {showContent4 ? "Less info" : "More info"}
+                  </button>
+                  {showContent4 && (
+                    <div>
+                    <SprintBurndownChart />
+                  </div>
+                  )}
+                </div>
               </Card.Body>
             </Card>
           </Col>
