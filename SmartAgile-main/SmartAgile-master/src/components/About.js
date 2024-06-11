@@ -1,6 +1,8 @@
+
 const About=()=>{
     return(
         <div>
+            
             <h3>Features of this AI Tool</h3>
             <h5>Privacy-Preserving Analytics</h5>
             <ol>

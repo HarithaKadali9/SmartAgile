@@ -133,8 +133,7 @@
 }
 
 .user-profile {
-  background-image: url("C:\Users\Windows 10\Desktop\TMachine\SmartAgile-main\SmartAgile-master\src\assets\Image.png"); /* Replace with actual path */
-  background-size: cover;
+   background-size: cover;
   background-position: center;
 }
 /* styles.css */

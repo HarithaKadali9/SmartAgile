@@ -61,7 +61,7 @@ function Login() {
           setMessage("Login successful!");
           console.log("Form submitted", response.data);
           localStorage.setItem("user", JSON.stringify(response.data.user));
-          navigate("/userprofile");
+          navigate("/admin/sprint-dashboard");
         })
         .catch((error) => {
           setMessage("Invalid email or password.");

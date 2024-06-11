@@ -1,35 +1,43 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom"; // Correctly import from react-router-dom
-import Login from "./components/Login";
+import Login from "./components/Login.js";
 import AdminLogin from "./components/AdminLogin.js";
-import Signup from "./components/Signup";
+import Signup from "./components/Signup.js";
 import Header from "./components/Header";
 import Content from "./components/Content";
-import Footer from "./components/Footer";
-import About from "./components/About";
+//import Footer from "./components/Footer";
+import About from "./components/About.js";
 import DataCheck from "./components/data.js";
 import ForgotPassword from "./components/Forgotpassword";
 import UserProfile from "./components/UserProfile";
 import Employee from "./components/Employee";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import EmployeeDashboard from './Dashboards/EmployeeDBComponent/EmployeeDashboard';
+import GroupDashboard from './Dashboards/GroupDBComponent/GroupDashboard';
+import SprintDashboard from './Dashboards/SprintDBComponents/SprintDashboard';
+import LandingPage from "./components/LandingPage.js";
+import LoginPage from "./components/LoginPage.js";
+import EmployeeProfiles from "./components/EmployeeProfiles.js";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/data" element={<DataCheck />} />
-        <Route path="/adminlogin" element={<AdminLogin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/userprofile" element={<UserProfile />} />
-        <Route path="/employee" element={<Employee />} />
-        <Route path="/about" element={<About />} />
-        <Route exact path="/Content" element={<Content />} />
-        <Route path="/forgotpassword" component={ForgotPassword} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path="/loging" element={<Login />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/signup" element={<Signup />} />
+  
+      <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
+      <Route path="/group/dashboard" element={<GroupDashboard />} />
+      <Route path="/admin/sprint-dashboard" element={<SprintDashboard />} />
+      <Route path="/admin/employee-profiles" element={<EmployeeProfiles />} />
+      
         {/* Add other routes as needed */}
       </Routes>
-      <Footer />
+      
     </BrowserRouter>
   );
 }

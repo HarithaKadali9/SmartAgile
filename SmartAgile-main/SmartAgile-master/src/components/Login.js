@@ -62,7 +62,7 @@ function Login() {
           console.log("Form submitted", response.data);
 
           localStorage.setItem("user", JSON.stringify(response.data.user));
-          navigate("/userprofile");
+          navigate("/employee/dashboard");
         })
         .catch((error) => {
           setMessage("Invalid email or password.");
